@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yu.dao.FreshmanDao">
+<select id="select" resultType="com.yu.pojo.Freshman">
+    select * from tb_freshman where ticketnumber=#{ticketnumber}
+</select>
+    <delete id="delete" parameterType="int">
+        delete from tb_freshman where ticketnumber=#{ticketnumber}
+    </delete>
+    <update id="update" parameterType="com.yu.pojo.Freshman">
+        update tb_freshman
+        set id_card=#{id_card},name=#{name},sex=#{sex}
+          ,age=#{age},birthday=#{birthday},nation=#{nation}
+        where ticketnumber=#{ticketnumber}
+    </update>
+    <insert id="insert" parameterType="com.yu.pojo.Freshman">
+        insert into tb_freshman(ticketnumber, name, sex, age, birthday, nation)
+        values(#{ticketnumber},#{name},#{sex},#{age},#{birthday},#{nation})
+    </insert>
+</mapper>
